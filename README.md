@@ -95,7 +95,6 @@ cd backend
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-cp ../.env.example ../.env
 uvicorn app.main:app --reload --port 8000
 ```
 
@@ -177,9 +176,3 @@ Set:
 
 ### Gemini support
 Gemini support is intentionally thin and modular. If you prefer, you can swap it to the OpenAI-compatible Gemini endpoint later without changing the graph shape.
-
-## Suggested git commit message
-
-```text
-feat: add agentic requirements demo with fastapi, react, langgraph, excel export, and modular llm providers
-```
