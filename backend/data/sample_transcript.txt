@@ -1,0 +1,19 @@
+Interviewer: Thanks for joining. Could you talk me through how you capture requirements today?
+
+Operations Lead: A lot of it starts in Teams calls with users. Someone writes notes manually, then another person turns those into backlog items. Sometimes we also maintain an Excel sheet for reporting and delivery tracking.
+
+Business User: The problem is that nuance gets lost. We hear important pain points in the call, but by the time it reaches the implementation team it has been simplified too much.
+
+Interviewer: What would a better process look like?
+
+Business User: I would like the transcript to become a concise requirement automatically. Ideally it would create a user story, then break it down into technical tasks with acceptance criteria.
+
+Operations Lead: And it would be helpful if each task ended up in the spreadsheet with a parent story reference, priority, and simple status.
+
+Business User: We also repeat ourselves across requirements. It would be useful if the system could point out possible duplicates or tell us when two tasks should be consolidated.
+
+Interviewer: Any constraints?
+
+Operations Lead: Keep it simple enough to demo. We do not want a black box. We want to show each stage in the UI so people understand what happened.
+
+Business User: We are already comfortable with FastAPI and React. We also prefer OpenAI for the main demo path because we sometimes hit Gemini limits.
