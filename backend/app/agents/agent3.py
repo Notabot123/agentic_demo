@@ -18,7 +18,7 @@ def generate_tasks(provider: LLMProvider, user_story: UserStory) -> list[TaskIte
 
     # Unique IDs
     for i, task in enumerate(tasks, start=1):
-        task.id = f"{user_story.story_id}-T{i}-{uuid4().hex[:6]}"
+        task.task_id = f"{user_story.story_id}-T{i}-{uuid4().hex[:6]}"
 
     return tasks
 
