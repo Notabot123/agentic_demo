@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     gemini_model: str = "gemini-2.5-flash"
 
     frontend_origin: str = "http://localhost:5173"
-    data_dir: str = "backend/data"
+    data_dir: str = "/data"
     export_filename: str = "requirements_export.xlsx"
 
     model_config = SettingsConfigDict(
