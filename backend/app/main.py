@@ -130,11 +130,13 @@ def graph():
 
 @app.delete("/reset")
 def reset_data():
-    data_file = Path("data/requirements.json")
+    from pathlib import Path
+
+    json_file = Path("data/requirements.json")
     excel_file = Path("data/output.xlsx")
 
-    if data_file.exists():
-        data_file.unlink()
+    if json_file.exists():
+        json_file.write_text("[]")   # safer than delete
 
     if excel_file.exists():
         excel_file.unlink()
