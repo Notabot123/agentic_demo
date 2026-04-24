@@ -97,7 +97,10 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 ```
-
+if hosting on server may wish to use:
+'''
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+'''
 ### 2) Frontend
 
 ```bash
