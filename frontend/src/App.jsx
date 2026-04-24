@@ -158,7 +158,7 @@ function DuplicatesPanel({ duplicates }) {
   )
 }
 
-function RequirementsSearch({ rows, search, setSearch }) {
+function RequirementsSearch({ rows, search, setSearch, resetData }) {
   return (
     <div className="card">
       <div className="section-header">
@@ -437,7 +437,12 @@ export default function App() {
         <TasksTable tasks={result?.tasks} />
         <DuplicatesPanel duplicates={result?.duplicates} />
         <DependencyGraph graph={graph} />
-        <RequirementsSearch rows={rows} search={search} setSearch={setSearch} />
+        <RequirementsSearch
+          rows={rows}
+          search={search}
+          setSearch={setSearch}
+          resetData={resetData}
+        />
         {result?.cleaned_transcript ? (
           <div className="card">
             <div className="section-header">
