@@ -1,6 +1,8 @@
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent  # project root
 
 class Settings(BaseSettings):
     app_name: str = "Agentic AI Demo"
@@ -14,7 +16,7 @@ class Settings(BaseSettings):
     gemini_model: str = "gemini-2.5-flash"
 
     frontend_origin: str = "http://localhost:5173"
-    data_dir: str = "/data"
+    data_dir: Path = BASE_DIR / "data"
     export_filename: str = "requirements_export.xlsx"
 
     model_config = SettingsConfigDict(
