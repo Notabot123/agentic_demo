@@ -132,11 +132,13 @@ def graph():
 def reset_data():
     from pathlib import Path
 
-    json_file = Path("data/requirements.json")
-    excel_file = Path("data/output.xlsx")
+    json_file = Path(f"{settings.data_dir}/requirements.json")
+    excel_file = Path(f"{settings.data_dir}/output.xlsx")
 
     if json_file.exists():
-        json_file.write_text("[]")   # safer than delete
+        json_file.write_text("[]")
+    else:
+        print(f"not found: {json_file}")
 
     if excel_file.exists():
         excel_file.unlink()
