@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { fetchGraph, fetchHealth, fetchRequirements, fetchSampleTranscript, runPipeline, transcribeAudio } from './api'
+import { API_BASE, fetchGraph, fetchHealth, fetchRequirements, fetchSampleTranscript, runPipeline, transcribeAudio } from './api'
 
 const STAGES = [
   'clean_transcript',
@@ -170,6 +170,7 @@ function RequirementsSearch({ rows, search, setSearch }) {
           onChange={e => setSearch(e.target.value)}
         />
       </div>
+      <button onClick={resetData}>Reset Data</button>
       <div className="table-wrap">
         <table>
           <thead>
@@ -351,6 +352,11 @@ export default function App() {
   }
 
   const exportPath = result?.export_path
+
+  const resetData = async () => {
+      await fetch(`${API_BASE}/reset`, { method: "DELETE" });
+      alert("Data reset");
+    };
 
   return (
     <div className="page">

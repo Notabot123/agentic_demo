@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from pathlib import Path
 
 from app.config import settings
 from app.graph import pipeline_graph
@@ -125,3 +126,17 @@ def requirements(search: str | None = None):
 @app.get("/api/graph")
 def graph():
     return build_graph()
+
+
+@app.delete("/reset")
+def reset_data():
+    data_file = Path("data/requirements.json")
+    excel_file = Path("data/output.xlsx")
+
+    if data_file.exists():
+        data_file.unlink()
+
+    if excel_file.exists():
+        excel_file.unlink()
+
+    return {"status": "reset complete"}
