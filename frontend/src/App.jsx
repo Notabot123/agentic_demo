@@ -354,9 +354,11 @@ export default function App() {
   const exportPath = result?.export_path
 
   const resetData = async () => {
-      await fetch(`${API_BASE}/reset`, { method: "DELETE" });
-      alert("Data reset");
-    };
+    if (!confirm("Reset all generated requirements?")) return;
+
+    await fetch(`${API_BASE}/reset`, { method: "DELETE" });
+    await loadDataset(search);
+  };
 
   return (
     <div className="page">
