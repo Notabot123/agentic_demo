@@ -1,0 +1,2 @@
+Interviewer: Can you walk me through the pain points in capturing user requirements?
+User: Notes live in Teams calls, then someone manually copies them into backlog items and spreadsheets. We lose nuance, repeat work, and miss acceptance criteria.

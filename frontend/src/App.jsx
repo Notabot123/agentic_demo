@@ -158,7 +158,7 @@ function DuplicatesPanel({ duplicates }) {
   )
 }
 
-function RequirementsSearch({ rows, search, setSearch, resetData }) {
+function RequirementsSearch({ rows, search, setSearch, resetData, sendJira }) {
   return (
     <div className="card">
       <div className="section-header">
@@ -170,7 +170,15 @@ function RequirementsSearch({ rows, search, setSearch, resetData }) {
           onChange={e => setSearch(e.target.value)}
         />
       </div>
-      <button onClick={resetData}>Reset Data</button>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <button className="secondary" onClick={resetData}>
+          Reset Data
+        </button>
+
+        <button className="primary" onClick={sendJira}>
+          Send to JIRA
+        </button>
+      </div>
       <div className="table-wrap">
         <table>
           <thead>
@@ -360,6 +368,10 @@ export default function App() {
     await loadDataset(search);
   };
 
+  function sendJira() {
+    alert("Data sent to JIRA, board name: example")
+  }
+
   return (
     <div className="page">
       <header className="hero">
@@ -444,6 +456,7 @@ export default function App() {
           search={search}
           setSearch={setSearch}
           resetData={resetData}
+          sendJira={sendJira}
         />
         {result?.cleaned_transcript ? (
           <div className="card">
