@@ -130,11 +130,11 @@ def graph():
 
 @app.delete("/reset")
 def reset_data():
-    json_file = settings.data_dir / "requirements.json"
-    excel_file = settings.data_dir / "output.xlsx"
+    json_file = settings.data_dir / "requirements_store.json"
+    excel_file = settings.data_dir / "requirements_export.xlsx"
 
     if json_file.exists():
-        json_file.write_text("[]")
+        json_file.unlink()
     else:
         print(f"not found: {json_file}")
 
